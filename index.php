@@ -10,7 +10,7 @@
 
 <!DOCTYPE html>
 <html>
-<?php require_once '01-header.php' ?>
+<?php include '01-header.php' ?>
 <body class="has-fixed-sidenav" >
 	<header>
 		<!-- navbar -->
@@ -63,7 +63,7 @@
 		<!-- ------------------------------ -->
     </div>
 	</main>
-	<?php require_once '02-footer.php' ?>
+	<?php include '02-footer.php' ?>
 </body>
 </html>
 

@@ -1,4 +1,4 @@
-<footer class="">
+<footer>
 	&copy; 2019 | <span style ="color: rgba(236, 96, 92, 1)">GCAL IT Dept.</span>
 </footer>
 <!-- Bootstrap JS -->
