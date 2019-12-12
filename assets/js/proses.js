@@ -38,6 +38,13 @@ $(document).ready(function () {
               showHideTransition: 'fade',
               icon: 'error'
             });
+          }else if (msg == 3){
+            $.toast({
+              heading: 'Error',
+              text: 'Fungsi gagal',
+              showHideTransition: 'fade',
+              icon: 'error'
+            });
           }
         }
       })
