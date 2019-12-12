@@ -17,8 +17,6 @@
 		$nama_file 			= $_POST['nama_file'];
 		$masa_berlaku 	= $_POST['masa_berlaku'];
       if ( tambah_data($perusahaan, $kategori, $nama_file, $masa_berlaku) ){
-        // $barang = ucwords($barang);   <------------ uppercase
-        // tambah_data($barang, $qty, $harga);
           echo 1;
       } else{
           echo 2;
