@@ -200,44 +200,35 @@
 						<td></td>
 						<td class="center-align"><a data-target="modal-tambah" class="btn-floating waves-effect waves-light red modal-trigger"><i class="material-icons">add</i></a></td>
 						<!-- -------------------------- Modal Tambah ------------------ -->	
-						<div id="modal1" class="modal">
-							<div class="modal-content">
-							<h4>Modal Header</h4>
-							<p>A bunch of text</p>
-							</div>
-							<div class="modal-footer">
-							<a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-							</div>
-						</div>
 						<div id="modal-tambah" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-lg">
 									<div class="modal-content text-left">
-									<select id="perusahaan<?= $row['id'] ?>" name="perusahaan" class="custom-select float-left bagi-2">
+									<select id="perusahaan-tambah" name="perusahaan" class="custom-select float-left bagi-2">
 										<option value="-" selected>Perusahaan</option>
 										<option value="GCAL">GCAL</option>
 										<option value="PACA">PACA</option>
 										<option value="SR">SR</option>
 									</select>	
-									<select id="kategori<?= $row['id'] ?>" name="kategori" class="custom-select float-right bagi-2">
+									<select id="kategori-tambah" name="kategori" class="custom-select float-right bagi-2">
 										<option value="-" selected>Kategori</option>
 										<option value="SIUP">SIUP</option>
 										<option value="Akta">Akta</option>
 									</select>
 									<div class="clearfix"></div>
 									<div class="form-group margin-top-20">
-										<label for="nama_file<?= $row['id'] ?>">Nama File</label>
-										<input type="text" class="form-control form-control-sm" id="nama_file<?= $row['id'] ?>" name="nama_file" placeholder="Isi dengan nama file" value="<?= $row_id['nama_file'] ?>">
+										<label for="nama_file-tambah">Nama File</label>
+										<input type="text" class="form-control form-control-sm" id="nama_file-tambah" name="nama_file" placeholder="Isi dengan nama file">
 									</div>
 									<div class="form-group float-left bagi-2">
-										<label for="data_file<?= $row['id'] ?>">Upload File</label>
-										<input type="file" class="form-control-file" id="data_file<?= $row['id'] ?>" name="data_file">
+										<label for="data_file-tambah">Upload File</label>
+										<input type="file" class="form-control-file" id="data_file-tambah" name="data_file">
 									</div>
 									<div class="form-group float-right bagi-2">
-										<label for="masa_berlaku<?= $row['id'] ?>">Masa Berlaku</label>
-										<input type="date" id="masa_berlaku<?= $row['id'] ?>" class="form-control" name="masa_berlaku" value="<?= $row_id['masa_berlaku'] ?>">
+										<label for="masa_berlaku-tambah">Masa Berlaku</label>
+										<input type="date" id="masa_berlaku-tambah" class="form-control" name="masa_berlaku">
 									</div>
 									<div class="clearfix"></div>
-									<button id="<?= $row['id'] ?>" class="tmbl_ubah btn btn-primary">Ubah</button>
+									<button id="tmbl_tmbh" class="tmbl_ubah btn btn-primary">Tambah</button>
 									</div>
 									</div>
 								</div>
