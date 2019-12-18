@@ -181,7 +181,7 @@
 									</div>
 									<div class="form-group float-right bagi-2">
 										<label for="masa_berlaku<?= $row['id'] ?>">Masa Berlaku</label>
-										<input type="date" id="masa_berlaku<?= $row['id'] ?>" class="form-control" name="masa_berlaku" value="<?= $row_id['masa_berlaku'] ?>">
+										<input type="date" id="masa_berlaku<?= $row['id'] ?>" class="form-control" name="masa_berlaku">
 									</div>
 									<div class="clearfix"></div>
 									<button id="<?= $row['id'] ?>" class="tmbl_ubah btn btn-primary">Ubah</button>
@@ -219,13 +219,13 @@
 										<label for="nama_file-tambah">Nama File</label>
 										<input type="text" class="form-control form-control-sm" id="nama_file-tambah" name="nama_file" placeholder="Isi dengan nama file">
 									</div>
-									<div class="form-group float-left bagi-2">
+									<div class="form-group margin-top-20">
 										<label for="data_file-tambah">Upload File</label>
 										<input type="file" class="form-control-file" id="data_file-tambah" name="data_file">
 									</div>
-									<div class="form-group float-right bagi-2">
+									<div class="form-group margin-top-20">
 										<label for="masa_berlaku-tambah">Masa Berlaku</label>
-										<input type="date" id="masa_berlaku-tambah" class="form-control" name="masa_berlaku">
+										<input id="masa_berlaku-tambah" name="masa_berlaku" class="text" value="">
 									</div>
 									<div class="clearfix"></div>
 									<button id="tmbl_tmbh" class="tmbl_ubah btn btn-primary">Tambah</button>
@@ -235,7 +235,8 @@
 							<!-- -------------------------------------------------------- -->
 					</tr>
 		</tbody>
-	</table>			
+	</table>
+			
 	<?php
 		}else{ }
 	?>

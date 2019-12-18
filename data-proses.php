@@ -15,16 +15,11 @@
       }
     } 
   }else if ($_GET['hal'] == 'tambah') {
-		$perusahaan 		= escape($_POST['perusahaan']);
-		$kategori 			= escape($_POST['kategori']);
-		$nama_file 			= escape($_POST['nama_file']);
-		$masa_berlaku 	= escape($_POST['masa_berlaku']);
-      if  ( function(){
-              $query 	= " INSERT INTO data (pt, kategori, nama_file, masa_berlaku) 
-                          VALUES ('$perusahaan', '$kategori', '$nama_file', '$masa_berlaku')";
-              return run($query); 
-            } 
-          ){
+		$perusahaan 		= $_POST['perusahaan'];
+		$kategori 			= $_POST['kategori'];
+		$nama_file 			= $_POST['nama_file'];
+		$masa_berlaku 	= $_POST['masa_berlaku'];
+      if  ( tambah_data($perusahaan, $kategori, $nama_file, $masa_berlaku) ){
             echo 1;
       } else{
             echo 2;
