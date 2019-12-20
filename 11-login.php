@@ -1,27 +1,29 @@
 <?php 	
+
 	require_once "core/init.php";
-	
+
 	if ( isset($_SESSION['user']) ){
 		header('location: index.php');
-	} else { 
+	} else {
+
 ?>
 
 <!DOCTYPE html>
 <html>
+	<?php require_once "01-header.php" ?>
+	<body>
+		<main>
+			<div class="container">
+				<div class="row">
+					<div id="card-login" class="col s12 m8 l4">
+						<div class="card z-depth-3">
 
-<?php require_once "01-header.php" ?>
-
-<body>
-	<main>
-		<div class="container">
-			<div class="row">
-				<div id="card-login" class="col s12 m4 l4">
-					<div class="card z-depth-3">
 							<!-- Title Login Card-->
 								<div class="card-title z-depth-1">
 									<span>Login</span>
 								</div>
 							<!-- ----------------- -->
+
 							<!-- Content Login Card-->
 								<div class="card-content">
 									<form method="GET">
@@ -38,19 +40,22 @@
 									</form>
 								</div>
 							<!-- ------------------ -->
+
 							<!-- Footer Login Card-->
 								<div class="card-footer">
 									<button id="tmbl_login" class="btn waves-effect waves-light" type="submit">Submit</button>
 								</div>
-								<!----------------  -->
+							<!----------------  -->
+
+							</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</main>
-	
-	<script>
-	// Agar button dapat ketrigger saat dienter
+		</main>
+
+		<script>
+
+		// Agar button dapat ketrigger saat dienter
 			const input = document.querySelectorAll(".input");
 			input.forEach( inp => inp.addEventListener("keyup", function(event) {
 				if (event.keyCode === 13) {
@@ -58,14 +63,14 @@
 					document.getElementById("tmbl_login").click();
 				}
 			}));
-	// --------------------------------------
-  </script>
+		// --------------------------------------
 
-<?php require_once "02-footer.php" ?>
+		</script>
 
-</body>
+		<?php require_once "02-footer.php" ?>
+	</body>
 </html>
 
 <?php 
-    } 
+	} 
 ?>
