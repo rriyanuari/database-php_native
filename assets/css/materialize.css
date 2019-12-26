@@ -2169,10 +2169,10 @@ html {
 body {
   margin: 0;
   /* background-color: #282C34; */
-  background-image: url("img/bg-body2.png");
+  /* background-image: url("img/bg-body2.png"); */
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  /* color: white; */
 }
 
 /**
@@ -5895,7 +5895,6 @@ button.btn-floating {
 .dropdown-content li>a,
 .dropdown-content li>span {
   font-size: 16px;
-  color: #26a69a;
   display: block;
   line-height: 22px;
   padding: 14px 16px;
@@ -7864,7 +7863,7 @@ input[type=range]::-ms-thumb {
 
 .sidenav {
   position: fixed;
-  width: 300px;
+  width: 250px;
   left: 0;
   top: 0;
   margin: 0;
@@ -9540,15 +9539,20 @@ input[type=range]::-ms-thumb {
   direction: ltr;
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
-  color: white;
 }
 
 #card-login {
   float: none;
 }
 
+#form-index{
+  padding: 20px 40px 0px 40px;
+  margin: auto;
+  text-align: center;
+}
+
 .has-fixed-sidenav {
-  padding-left: 300px;
+  padding-left: 250px;
 }
 
 .margin-0 {
@@ -9581,8 +9585,12 @@ div.nav-wrapper>div.right {
   padding-left: 50px;
 }
 
-div.icon-login>i.material-icons {
+/* div.icon-login>i.material-icons {
   color: black;
+} */
+
+.icon-control {
+  cursor: pointer;
 }
 
 li>a {

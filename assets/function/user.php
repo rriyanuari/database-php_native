@@ -3,19 +3,19 @@
 // -------------------FUNGSI2 BERMANFAAT-------------------------
 
 	// FUNGSI RUN QUERY
-		
+
 		function run($query){
 			global $link;
-		
+
 			if ( mysqli_query($link, $query) ) return true;
 			else return false;
 		}
-		
+
 	// FUNGSI RUN QUERY -> RETURN
-		
+
 		function result($query){
 			global $link;
-		
+
 			if ( $result = mysqli_query($link, $query) or die("gagal menampilkan data") ){
 				return $result;	
 			} 
@@ -33,23 +33,35 @@
 // -----------------------MENAMPILKAN DATA-------------------------------
 
 	// DATABASE --> MENU DATA
-		
 		function tampilkan(){
 			$query 	= "SELECT * FROM data";
 			return result($query);
 		}
 
+		function tampilkan_pt(){
+			$query 	= "SELECT pt FROM perusahaan";
+			return result($query);
+		}
+
+		function tampilkan_kategori(){
+			$query 	= "SELECT kategori FROM kategori";
+			return result($query);
+		}
+
 	// DATABASE --> Per ID
-		
 		function tampilkan_per_id($id){
 			$query 	= "SELECT * FROM data WHERE id='$id'";
 			return result($query);
 		}
-		
-	// DATABASE --> Per ID
-		
+
+	// DATABASE --> Per PT
 		function tampilkan_per_pt($pt){
 			$query 	= "SELECT * FROM data WHERE pt='$pt'";
+			return result($query);
+		}
+
+		function tampilkan_pt_kategori($pt, $kategori){
+			$query 	= "SELECT * FROM data WHERE pt='$pt' AND kategori='$kategori' ";
 			return result($query);
 		}
 
@@ -58,7 +70,7 @@
 // -----------------------MEMASUKAN DATA-------------------------------
 
 	// ADD MENU DATA --> DATABASE --> DATA
-		
+
 		function tambah_data($perusahaan, $kategori, $nama_file, $masa_berlaku){
 			$perusahaan 	= escape($perusahaan);
 			$kategori 		= escape($kategori);

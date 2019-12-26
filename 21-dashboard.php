@@ -3,6 +3,7 @@
 
 	$data 			= "";
 	$pt 				= "";
+	$kategori		= "";
 	$perusahaan	= "";
 
 	if(isset($_GET['pt'])){
@@ -22,83 +23,11 @@
 			$pt = "SR";
 			$perusahaan = "PT. SOBO REJO";
 		}
+	if(isset($_GET['kategori'])){
+			$kategori	=  $_GET['kategori'];
+	}
 ?>
 	<h4 class="center-align"><u><?= $perusahaan ?></u></h4>
-	<p>Pilih Kategori :</p>
-		<div class="select-kategori row">
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" checked />
-					<span>Akta</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>	
-					<input class="with-gap" name="group1" type="radio" />
-					<span>SIUP</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>TDP</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>NPWP</span>
-				</label> 
-			</div> 
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>IUJK</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>NIB</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>Domisili</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>SPPKP</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>SBU</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>KTA</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>SKT</span>
-				</label>
-			</div>
-			<div class= "col s3">
-				<label>
-					<input class="with-gap" name="group1" type="radio" />
-					<span>ISO</span>
-				</label>
-			</div>
-		</div>
 	<table class="table table-hover table-sm">
 		<thead>
 			<tr>
@@ -112,8 +41,12 @@
 		</thead>
 		<tbody>
 				<?php
-					$no 	= 0; 
-					$data	= tampilkan_per_pt($pt);
+					$no 	= 0;
+					if($kategori == ""){
+						$data	= tampilkan_per_pt($pt);
+					} else{
+						$data	= tampilkan_pt_kategori($pt, $kategori);
+					}
 					// die( print_r($data) );
 					while( $row = mysqli_fetch_assoc($data) ): 
 					$no++  ;
@@ -125,9 +58,9 @@
 						<td><?= $row['nama_file'] ?></td>
 						<td class="center-align"><?= $row['masa_berlaku'] ?></td>
 						<td class="center-align">
-							<i class="material-icons" data-toggle="modal" data-target="#modal-detail<?= $row['id'] ?>">search</i>
-							<i class="material-icons" data-toggle="modal" data-target="#modal-ubah<?= $row['id'] ?>">edit</i>
-							<i class="material-icons" data-toggle="modal" data-target="#<?= $row['id'] ?>">delete</i>
+							<i class="material-icons icon-control" data-toggle="modal" data-target="#modal-detail<?= $row['id'] ?>">search</i>
+							<i class="material-icons icon-control" data-toggle="modal" data-target="#modal-ubah<?= $row['id'] ?>">edit</i>
+							<i class="material-icons icon-control" data-toggle="modal" data-target="#<?= $row['id'] ?>">delete</i>
 
 							<?php 
 								$id      = $row['id'];
@@ -135,7 +68,7 @@
 								$row_id  = mysqli_fetch_assoc($data_id);
 								// die( print_r($row_id) );
 							?>
-							
+
 							<!-- -------------------------- Modal Detail ----------------------- -->	
 								<div id="modal-detail<?= $row['id'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 									<div class="modal-dialog modal-lg">
