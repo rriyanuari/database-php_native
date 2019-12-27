@@ -203,11 +203,7 @@ $(document).ready(function () {
 
   // -----------------------HAPUS DATA----------------------------
 
-  $('#container').on('click', '.tmbl_cancel', function () {
-    $('.modal').modal('close');
-  });
-
-  $('#isi').on('click', '.tmbl_hapus', function () {
+  $('#isi').on('click', '.tmbl-hapus', function () {
     var id = $(this).attr('id');
     $.ajax({
       url: 'data-proses.php?hal=hapus',
@@ -217,18 +213,16 @@ $(document).ready(function () {
       },
       success: function (msg) {
         if (msg == 1) {
-          $('.modal').modal('hide');
-          $('.modal-backdrop').remove();
+          $('.modal').modal('close');
           $.toast({
             heading: 'Success',
             text: 'Data Berhasil Dihapus',
             showHideTransition: 'fade',
             icon: 'success'
           });
-          $('#isi').load('dashboard.php');
+          location.reload();
 
         } else if (msg == 2) {
-          nama.focus();
           $.toast({
             heading: 'Error',
             text: 'Data Gagal Dihapus',
