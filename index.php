@@ -60,15 +60,5 @@
 	</body>
 </html>
 
-<script>
-	$(document).ready(function () {
-
-		var url_string = $(location).attr('href')
-		var url = new URL(url_string);
-		var status = url.searchParams.get("status");
-		if(status = 'add'){
-			
-		}
-</script>
 
 <?php } ?>

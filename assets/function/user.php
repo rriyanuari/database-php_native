@@ -43,6 +43,11 @@
 			return result($query);
 		}
 
+		function tampilkan_nama_per_pt($pt){
+			$query 	= "SELECT * FROM perusahaan WHERE pt='$pt'";
+			return result($query);
+		}
+
 		function tampilkan_kategori(){
 			$query 	= "SELECT kategori FROM kategori";
 			return result($query);
