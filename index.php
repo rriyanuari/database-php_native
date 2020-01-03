@@ -25,7 +25,7 @@
 								<h4 class="left margin-0">Database Legal</h4>
 							</div>
 							<div class="right">
-								<span class="name">Hallo, selamat datang <?=$_SESSION['user']?> | </span>
+								<span class="name">Date : <?= date('Y-m-d'); ?> | </span>
 								<a href="12-logout.php">Logout</a> 
 							</div>
 						</div>

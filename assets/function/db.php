@@ -1,7 +1,7 @@
 <?php
 
 // ------Konek database--------
- 
+
 $host 	= "localhost";
 $user	= "root";
 $pass	= "";

@@ -10,7 +10,7 @@
 		}else{ ?>
 
 			<!---------- FORM PT & KATEGORI -->
-				<form id="form-index" class="row" method="GET">
+				<form class="form row" method="GET">
 
 					<?php
 						$pt 			= "";
@@ -79,8 +79,9 @@
 									<tr>
 										<th class="center-align" scope="col" width="5%">No</th>
 										<th class="center-align" scope="col" width="10%">Kategori</th>
-										<th class="center-align" scope="col" width="45%">Nama Surat</th>
-										<th class="center-align" scope="col" width="20%">Masa Berlaku</th>
+										<th class="center-align" scope="col" width="35%">Nama Surat</th>
+										<th class="center-align" scope="col" width="15%">Tgl Dibuat</th>
+										<th class="center-align" scope="col" width="15%">Masa Berlaku</th>
 										<th class="center-align" scope="col" width="20%">Control</th>
 									</tr>
 								</thead>
@@ -104,11 +105,12 @@
 														<th class="center-align" scope="row">	<?= $no 									?>		</th>
 														<td class="center-align"						>	<?= $row['kategori'] 			?>		</td>
 														<td	class=""												>	<?= $row['nama_file'] 		?>		</td>
+														<td class="center-align"						>	<?= $row['tgl_dibuat']	?>		</td>
 														<td class="center-align"						>	<?= $row['masa_berlaku']	?>		</td>
 														<td class="center-align"						>
-															<i class="material-icons modal-trigger icon-control" href="#modal-detail<?= $row['id'] ?>">	search	</i>
-															<i class="material-icons modal-trigger icon-control" href="#modal-ubah	<?= $row['id'] ?>">	edit		</i>
-															<i class="material-icons modal-trigger icon-control" href="#modal-hapus	<?= $row['id'] ?>">	delete	</i>
+															<a target="blank" href="23-preview.php?id=<?= $row['id'] ?>"><i class="material-icons icon-control">	search	</i></a>
+															<i class="material-icons modal-trigger icon-control" href="#modal-ubah<?= $row['id'] ?>">	edit		</i>
+															<i class="material-icons modal-trigger icon-control" href="#modal-hapus<?= $row['id'] ?>">	delete	</i>
 
 															<!---------- MENGAMBIL DATA => DB => ID  -->
 																<?php 
@@ -174,4 +176,4 @@
 							</table>
 
 					<?php	} ?>
-			<?php } ?>
+		<?php } ?>

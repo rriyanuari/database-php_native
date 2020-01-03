@@ -74,15 +74,52 @@
 
 // -----------------------MEMASUKAN DATA-------------------------------
 
-	// ADD MENU DATA --> DATABASE --> DATA
+		function upload(){
+			$nama_file			=	$_FILES['loc_file']['name'];
+			$ukuran_file		=	$_FILES['loc_file']['size'];
+			$ekstensi				=	explode('.', $nama_file);
+			$ekstensi				=	strtolower(end($ekstensi));
+			$valid_ekstensi	=	['pdf'];
+			$error					= $_FILES['loc_file']['error'];
+			$tmp_name				= $_FILES['loc_file']['tmp_name'];
 
-		function tambah_data($perusahaan, $kategori, $nama_file, $masa_berlaku){
-			$perusahaan 	= escape($perusahaan);
+			if($error === 4){
+				echo "<script>
+								alert('pilih file untuk diupload')
+							</script>";
+				return false;
+			}
+			
+			if($ukuran_file > 1000000){
+				echo "<script>
+								alert('ukuran file terlalu besar')
+							</script>";
+				return false;
+			}
+
+			if( !in_array($ekstensi, $valid_ekstensi) ){
+				echo "<script>
+								alert('format file harus pdf')
+							</script>";
+				return false;
+			}
+
+			move_uploaded_file($tmp_name, 'assets/pdf/'.$nama_file);
+			return $nama_file;
+		}
+
+		// ADD MENU DATA --> DATABASE --> DATA
+
+		function tambah_data($pt, $kategori, $nama_file, $masa_berlaku, $tgl_dibuat, $loc_file){
+			$pt 					= escape($pt);
 			$kategori 		= escape($kategori);
 			$nama_file		= escape($nama_file);
 			$masa_berlaku	= escape($masa_berlaku);
+			$tgl_dibuat		= escape($tgl_dibuat);
+			$loc_file			=	escape($loc_file);
 			
-			$query 	= "INSERT INTO data (pt, kategori, nama_file, masa_berlaku) VALUES ('$perusahaan', '$kategori', '$nama_file', '$masa_berlaku')";
+			$query 	= "INSERT INTO data (pt, kategori, nama_file, masa_berlaku, tgl_dibuat, loc_file) 
+												VALUES ('$pt', '$kategori', '$nama_file', '$masa_berlaku', '$tgl_dibuat', '$loc_file')";
 			return run($query);
 		}
 
