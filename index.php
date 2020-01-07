@@ -25,7 +25,7 @@
 								<h4 class="left margin-0">Database Legal</h4>
 							</div>
 							<div class="right">
-								<span class="name">Date : <?= date('Y-m-d'); ?> | </span>
+								<span class="name">Date : <?= date('d-m-Y'); ?> | </span>
 								<a href="12-logout.php">Logout</a> 
 							</div>
 						</div>
@@ -43,8 +43,6 @@
 		</header>
 
 		<main>
-
-			
 
 			<div class="row">
 				<!------- Isi Content - Jquery ------->

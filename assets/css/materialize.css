@@ -2172,7 +2172,6 @@ body {
   /* background-image: url("img/bg-body2.png"); */
   background-repeat: no-repeat;
   background-size: cover;
-  /* color: white; */
 }
 
 /**
@@ -2190,7 +2189,7 @@ section {
 footer {
   text-align: center;
   padding: 30px;
-  color: white;
+  /* color: white; */
 }
 
 /**
@@ -6413,7 +6412,7 @@ button:focus {
 
 label {
   font-size: 0.8rem;
-  color: aquamarine;
+  color: #9e9e9e;
 }
 
 /* Text Inputs + Textarea
@@ -9540,6 +9539,8 @@ input[type=range]::-ms-thumb {
   -webkit-font-feature-settings: 'liga';
   -webkit-font-smoothing: antialiased;
 }
+
+/* ========== CUSTOM */
 
 #card-login {
   float: none;

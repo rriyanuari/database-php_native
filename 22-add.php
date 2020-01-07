@@ -29,11 +29,10 @@
 
 <div class="row center-align">
 	<h4>Tambah Data</h4>
-	<h6>lengkapi form di bawah untuk menambahkan data</h6>
 </div>
 
 <form class="form" method="POST" action="index.php?status=add" enctype="multipart/form-data">
-	
+
 	<div class="row">
 		<div class="input-field col s6">
 			<select name="pt" id="pt">
@@ -65,28 +64,28 @@
 	<div class="row">
 		<div class="form-group col s12">
 			<label for="nama_file">Nama File</label>
-			<input type="text" class="form-control form-control-sm" name="nama_file" placeholder="Isi dengan nama file">
+			<input type="text" id="nama_file" class="form-control form-control-sm" name="nama_file" placeholder="Isi dengan nama file">
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="form-group col s6">
 			<label for="tgl_dibuat">Tgl Dibuat</label>
-			<input type="date" class="form-control" name="tgl_dibuat">
+			<input type="date" id="tgl_dibuat" class="form-control" name="tgl_dibuat">
 		</div>
 
 		<div class="form-group col s6">
 			<label for="masa_berlaku">Masa Berlaku</label>
-			<input type="date" class="form-control" name="masa_berlaku">
+			<input type="date" id="masa_berlaku" class="form-control" name="masa_berlaku">
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="form-group col s6">
-			<input type="file" class="form-control-file" name="loc_file">
+			<input type="file" id="loc_file" class="form-control-file" name="loc_file">
 		</div>
 		
-		<button class="btn btn-primary col s6" name="submit">Tambah Data</button>
+		<button class="btn btn-primary col s6" id=tmbl_tmbh name="submit">Tambah Data</button>
 	</div>
 
 	<div class="row">

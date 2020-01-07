@@ -48,11 +48,14 @@ $(document).ready(function () {
 
   // -----------------------TAMBAH DATA------------------------    
   function tambah() {
-    var perusahaan = $('#perusahaan    option:selected');
-    var kategori = $('#kategori  option:selected');
-    var nama_file = $('#nama_file');
-    var masa_berlaku = $('#masa_berlaku');
-    if (perusahaan.attr('value') == '-') {
+    var perusahaan    = $('#pt       option:selected');
+    var kategori      = $('#kategori option:selected');
+    var nama_file     = $('#nama_file');
+    var tgl_dibuat    = $('#tgl_dibuat');
+    var masa_berlaku  = $('#masa_berlaku');
+    var loc_file      = $('#loc_file');
+
+    if (perusahaan.attr('value') == '') {
       $.toast({
         heading: 'Error',
         text: 'Pilih Perusahaan',
@@ -60,7 +63,9 @@ $(document).ready(function () {
         icon: 'error'
       });
       perusahaan.focus();
-    } else if (kategori.attr('value') == '-') {
+      return false;
+
+    } else if (kategori.attr('value') == '') {
       $.toast({
         heading: 'Error',
         text: 'Pilih Kategori',
@@ -68,6 +73,8 @@ $(document).ready(function () {
         icon: 'error'
       });
       kategori.focus();
+      return false;
+
     } else if ($.trim(nama_file.val()) == '') {
       $.toast({
         heading: 'Error',
@@ -76,6 +83,38 @@ $(document).ready(function () {
         icon: 'error'
       });
       nama_file.focus();
+      return false;
+
+    } else if ($.trim(tgl_dibuat.val()) == '') {
+      $.toast({
+        heading: 'Error',
+        text: 'Tgl dibuat Tidak Boleh Kosong',
+        showHideTransition: 'fade',
+        icon: 'error'
+      });
+      tgl_dibuat.focus();
+      return false;
+
+    } else if ($.trim(masa_berlaku.val()) == '') {
+      $.toast({
+        heading: 'Error',
+        text: 'Masa Berlaku Tidak Boleh Kosong',
+        showHideTransition: 'fade',
+        icon: 'error'
+      });
+      masa_berlaku.focus();
+      return false;
+
+    } else if ($.trim(loc_file.val()) == '') {
+      $.toast({
+        heading: 'Error',
+        text: 'Pilih file untuk diupload',
+        showHideTransition: 'fade',
+        icon: 'error'
+      });
+      loc_file.focus();
+      return false;
+
     } else {
       $.ajax({
         url: 'data-proses.php?hal=tambah',

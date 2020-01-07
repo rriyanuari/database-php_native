@@ -99,16 +99,20 @@
 											// ---------- MENAMPILKAN DATA DENGAN LOOPING
 												$no 	= 0;
 												while( $row = mysqli_fetch_assoc($data) ): 
-													$no++  ; ?>
+													$no++  ;
 
-													<tr>
+													$tgl_dibuat			= strtotime($row['masa_berlaku']);
+													$jatuh_tempo		=	strtotime($row['masa_berlaku'], strtotime('-2 month'));
+													// var_dump(strtotime(date('d/m/y')), $jatuh_tempo); die; ?>
+
+													<tr class="<?php if(strtotime(date('d/m/y')) >= $jatuh_tempo) echo "telat"; ?>">
 														<th class="center-align" scope="row">	<?= $no 									?>		</th>
 														<td class="center-align"						>	<?= $row['kategori'] 			?>		</td>
 														<td	class=""												>	<?= $row['nama_file'] 		?>		</td>
-														<td class="center-align"						>	<?= $row['tgl_dibuat']	?>		</td>
+														<td class="center-align"						>	<?= $row['tgl_dibuat']		?>		</td>
 														<td class="center-align"						>	<?= $row['masa_berlaku']	?>		</td>
 														<td class="center-align"						>
-															<a target="blank" href="23-preview.php?id=<?= $row['id'] ?>"><i class="material-icons icon-control">	search	</i></a>
+															<a target="_blank" href="23-preview.php?id=<?= $row['id'] ?>"><i class="material-icons icon-control">	search	</i></a>
 															<i class="material-icons modal-trigger icon-control" href="#modal-ubah<?= $row['id'] ?>">	edit		</i>
 															<i class="material-icons modal-trigger icon-control" href="#modal-hapus<?= $row['id'] ?>">	delete	</i>
 
@@ -121,37 +125,27 @@
 																?>
 
 															<!---------- MODAL UBAH -->	
-																<div id="modal-ubah<?= $row['id'] ?>" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+																<div id="modal-ubah<?= $row['id'] ?>" class="modal fade left-align" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 																	<div class="modal-dialog modal-lg">
 																		<div class="modal-content text-left">
 
-																			<select id="perusahaan<?= $row['id'] ?>" name="perusahaan" class="custom-select float-left bagi-2">
-																				<option value="-" selected>Perusahaan</option>
-																				<option value="GCAL">GCAL</option>
-																				<option value="PACA">PACA</option>
-																				<option value="SR">SR</option>
-																			</select>	
-																			<select id="kategori<?= $row['id'] ?>" name="kategori" class="custom-select float-right bagi-2">
-																				<option value="-" selected>Kategori</option>
-																				<option value="SIUP">SIUP</option>
-																				<option value="Akta">Akta</option>
-																			</select>
-																			<div class="clearfix"></div>
-
-																			<div class="form-group margin-top-20">
-																				<label for="nama_file<?= $row['id'] ?>">Nama File</label>
-																				<input type="text" class="form-control form-control-sm" id="nama_file<?= $row['id'] ?>" name="nama_file" placeholder="Isi dengan nama file" value="<?= $row_id['nama_file'] ?>">
+																			<div class="row">
+																				<div class="form-group margin-top-20">
+																					<label for="nama_file<?= $row['id'] ?>">Nama File</label>
+																					<input type="text" class="form-control form-control-sm" id="nama_file<?= $row['id'] ?>" name="nama_file" placeholder="Isi dengan nama file" value="<?= $row_id['nama_file'] ?>">
+																				</div>
 																			</div>
 
-																			<div class="form-group float-left bagi-2">
-																				<label for="data_file<?= $row['id'] ?>">Upload File</label>
-																				<input type="file" class="form-control-file" id="data_file<?= $row['id'] ?>" name="data_file">
+																			<div class="row">
+																				<div class="form-group col s6">
+																					<label for="tgl_dibuat<?= $row['id'] ?>">Tgl Dibuat</label>
+																					<input type="date" id="tgl_dibuat<?= $row['id'] ?>" class="form-control" name="tgl_dibuat" value="<?= $row_id['tgl_dibuat'] ?>">
+																				</div>
+																				<div class="form-group col s6">
+																					<label for="masa_berlaku<?= $row['id'] ?>">Masa Berlaku</label>
+																					<input type="date" id="masa_zberlaku<?= $row['id'] ?>" class="form-control" name="masa_berlaku" value="<?= $row_id['masa_berlaku'] ?>">
+																				</div>
 																			</div>
-																			<div class="form-group float-right bagi-2">
-																				<label for="masa_berlaku<?= $row['id'] ?>">Masa Berlaku</label>
-																				<input type="date" id="masa_zberlaku<?= $row['id'] ?>" class="form-control" name="masa_berlaku" value="<?= $row_id['masa_berlaku'] ?>">
-																			</div>
-																			<div class="clearfix"></div>
 
 																			<button id="<?= $row['id'] ?>" class="tmbl_ubah btn btn-primary">Ubah</button>
 
